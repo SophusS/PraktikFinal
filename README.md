@@ -1,24 +1,4 @@
-## Available Scripts
+# PraktikFinal By Simon, Sophus and Sebastian.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## We chose the community challenge (https://corolab.dk/projekter/faellesskaber-med-plads-til-alle/), where the goal is to create a solution for pupils and students that are unable to thrive in school or just in general. 
+## We have chosen to create a website using the MERN stack, that will hopefully help the students and pupils that are in need to thrive, and help them find communities they can feel a part of. 
