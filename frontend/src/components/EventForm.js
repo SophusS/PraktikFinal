@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useEventsContext } from '../hooks/UseEventsContext'
 
-const eventForm = () => {
+const EventForm = () => {
   const { dispatch } = useEventsContext()
 
   const [title, setTitle] = useState('')
