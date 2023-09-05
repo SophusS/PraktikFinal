@@ -1,4 +1,4 @@
-const express = require("express")
+const express = require('express')
 
 const {
     createEvent,
@@ -11,30 +11,19 @@ const {
 const router = express.Router()
 
 //GET all events
-router.get('/', (req, res) => {
-    res.json({mssg: 'GET all events'})
-})
+router.get('/', getEvents);
 
 //GET single event
-router.get('/:id', (req, res) => {
-    res.json({mssg: 'GET a single event'})
-})
+router.get('/:id', getEvent);
 
 //POST a new event
-router.post('/', (req, res) => {
-    res.json({mssg: 'POST an event'})
-})
+router.post('/', createEvent);
 
 //DELETE an event
-router.delete('/:id', (req, res) => {
-    res.json({mssg: 'DELETE an event'})
-})
+router.delete('/:id', deleteEvent);
 
 //UPDATE/PATCH an event
-router.patch('/:id', (req, res) => {
-    res.json({mssg: 'UPDATE/PATCH an event'})
-})
-
+router.patch('/:id', updateEvent);
 
 
 module.exports = router

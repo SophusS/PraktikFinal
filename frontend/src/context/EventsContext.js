@@ -11,7 +11,7 @@ export const eventsReducer = (state, action) => {
       }
     case 'CREATE_EVENT':
       return {
-        events: [action.payload, ...state.event] // ...state.events is the previous state
+        events: [action.payload, ...state.events] // ...state.events is the previous state
       }
     case 'DELETE_EVENT':
       return {
