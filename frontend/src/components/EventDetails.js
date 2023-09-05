@@ -26,8 +26,7 @@ const EventDetails = ({ event }) => {
             <div className='card-body'>
                 <h4 className='card-title'>{event.title}</h4>
                 <p className='card-text'><strong>Description: </strong>{event.description}</p>
-                <p><strong>Location: </strong>{event.location}</p>
-                <p><strong>Transportation: </strong>{event.transportation}</p>
+                <p><strong>Start date: </strong>{formattedDate}</p>
                 <p>{formatDistanceToNow(new Date(event.createdAt), { addSuffix: true })}</p>
                 <span className="btn btn-danger" onClick={handleClick}>Delete</span>
             </div>

@@ -6,15 +6,14 @@ const EventForm = () => {
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
-  const [location, setLocation] = useState('')
-  const [transportation, setTransportation] = useState('')
+  const [date, setDate] = useState('')
   const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const event = {title, description, location, transportation}
+    const event = {title, description, date}
     
     const response = await fetch('/api/events', {
       method: 'POST',
@@ -34,8 +33,7 @@ const EventForm = () => {
       setError(null)
       setTitle('')
       setDescription('')
-      setLocation('')
-      setTransportation('')
+      setDate('')
       dispatch({type: 'CREATE_EVENT', payload: json})
     }
   }
@@ -59,7 +57,7 @@ const EventForm = () => {
       <label htmlFor="description" className='form-label'>Description:</label>
       <textarea
         type="text"
-        placeholder='Beskriv beginheden'
+        placeholder='Beskriv begivenheden'
         onChange={(e) => setDescription(e.target.value)}
         value={description}
         className={`form-control ${emptyFields.includes('description') ? 'error' : ''}`}
@@ -69,26 +67,13 @@ const EventForm = () => {
       </div>
 
       <div className='mb-3'>
-      <label htmlFor="location" className='form-label'>Location:</label>
+      <label htmlFor="date" className='form-label'>Date:</label>
       <input
-        type="text"
-        placeholder='Hvor er det henne?'
-        onChange={(e) => setLocation(e.target.value)}
-        value={location}
-        className={`form-control ${emptyFields.includes('location') ? 'error' : ''}`}
-        id="location"
-      />
-      </div>
-
-      <div className='mb-3'>
-      <label htmlFor="transportation" className='form-label'>Transportation:</label>
-      <input
-        type="text"
-        placeholder='Hvordan kan du nå frem?'
-        onChange={(e) => setTransportation(e.target.value)}
-        value={transportation}
-        className={`form-control ${emptyFields.includes('transportation') ? 'error' : ''}`}
-        id="transportation"
+        type="date"
+        onChange={(e) => setDate(e.target.value)}
+        value={date}
+        className={`form-control ${emptyFields.includes('date') ? 'error' : ''}`}
+        id="date"
       />
       </div>
 
