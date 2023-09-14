@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { useEventsContext } from '../hooks/UseEventsContext'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const EventForm = () => {
   const { dispatch } = useEventsContext()
+  const {user} = useAuthContext()
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -13,13 +15,19 @@ const EventForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    if(!user) {
+      setError("You must be logged in")
+      return
+    }
+
     const event = {title, description, date}
     
     const response = await fetch('/api/events', {
       method: 'POST',
       body: JSON.stringify(event),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        "Authorization": `Bearer ${user.token}`
       }
     })
     const json = await response.json()
@@ -34,6 +42,7 @@ const EventForm = () => {
       setTitle('')
       setDescription('')
       setDate('')
+      console.log('new workout added', json)
       dispatch({type: 'CREATE_EVENT', payload: json})
     }
   }
@@ -78,6 +87,7 @@ const EventForm = () => {
       </div>
 
       <button type="submit" className="btn btn-success">Submit</button>
+      {error && <div className="error">{error}</div>}
     </form>
   )
 }
