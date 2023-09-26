@@ -3,7 +3,9 @@ const mongoose = require('mongoose')
 
 //GET all events
 const getEvents = async (req, res) => {
-    const events = await Event.find({}).sort({createdAt: -1}) //sort by newest first
+    const user_id = req.user._id
+
+    const events = await Event.find({user_id}).sort({createdAt: -1}) //sort by newest first. .find(user_id) sorts events so users only see their own events
 
     res.status(200).json(events)
 }
@@ -44,7 +46,8 @@ const createEvent = async (req, res) => {
     
     //add document to database
     try {
-      const event = await Event.create({title, description, date})
+      const user_id = req.user._id
+      const event = await Event.create({title, description, date, user_id})
       res.status(200).json(event)
     } catch (error) {
       res.status(400).json({error: error.message})

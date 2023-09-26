@@ -24,7 +24,7 @@ export const eventsReducer = (state, action) => {
 
 export const EventsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(eventsReducer, { 
-    events: null
+    events: [] //ændre til null hvis der er fejl, måske virker det
   });
       
   return (

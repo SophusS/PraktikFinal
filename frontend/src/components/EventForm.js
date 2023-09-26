@@ -42,7 +42,7 @@ const EventForm = () => {
       setTitle('')
       setDescription('')
       setDate('')
-      console.log('new workout added', json)
+      console.log('new event added', json)
       dispatch({type: 'CREATE_EVENT', payload: json})
     }
   }
