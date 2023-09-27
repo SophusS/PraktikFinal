@@ -23,14 +23,14 @@ const Navbar = () => {
                 <Link to="/about" className='nav-link mx-3'>Omkring os</Link>
                 <div className="d-flex align-items-center">
                 <span style={{ marginRight: '10px' }}>{user.email}</span>
-                <button onClick={handleClick} className='btn btn-danger'>Log out</button>
+                <button onClick={handleClick} className='btn btn-danger'>Log ud</button>
                 </div>
               </div>
             )}
             {!user && (
               <div className="">
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Signup</Link>
+                <Link to="/login" className='nav-link mx-3'>Login</Link>
+                <Link to="/signup" className='nav-link mx-3'>Tilmeld</Link>
               </div>
             )}
           </nav>

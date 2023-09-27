@@ -87,6 +87,7 @@ const EventForm = () => {
       </div>
 
       <button type="submit" className="btn btn-success">Submit</button>
+      
       {error && <div className="error">{error}</div>}
     </form>
   )
