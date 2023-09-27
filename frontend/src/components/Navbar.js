@@ -14,17 +14,21 @@ const Navbar = () => {
         <header>
         <div className="container">
           <Link to="/">
-            <h1>Ungdom</h1>
+            <h1 className=''>Ungdom</h1>
           </Link>
-          <nav>
+          <nav class="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: '#e3f2fd' }}>
             {user && (
-              <div>
-                <span>{user.email}</span>
-                <button onClick={handleClick}>Log out</button>
+              <div className="container d-flex">
+                <Link to="/skabbegivenhed" className='nav-link mx-3'>Skab begivenhed</Link>
+                <Link to="/about" className='nav-link mx-3'>Omkring os</Link>
+                <div className="d-flex align-items-center">
+                <span style={{ marginRight: '10px' }}>{user.email}</span>
+                <button onClick={handleClick} className='btn btn-danger'>Log out</button>
+                </div>
               </div>
             )}
             {!user && (
-              <div>
+              <div className="">
                 <Link to="/login">Login</Link>
                 <Link to="/signup">Signup</Link>
               </div>

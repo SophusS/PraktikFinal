@@ -33,7 +33,7 @@ const Home = () => {
     return (
         <div className="center">
             <div className="">
-                <h1>Velkommen til vores hjemmeside</h1>
+                <h1 className="center">Velkommen til vores hjemmeside</h1>
                 { events && events.map((event) => (
                     <EventDetails key={event._id} event={event}/>
                 ))}

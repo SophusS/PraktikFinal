@@ -24,7 +24,7 @@ function App() {
             />
             <Route 
               path="/skabbegivenhed"
-              element={<CreateEvent /> }
+              element={user ? <CreateEvent />: <Navigate to="/login" />}
             />
             <Route 
               path="/about"
