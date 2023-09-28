@@ -7,8 +7,12 @@ const {
     deleteEvent,
     updateEvent
 } = require('../controllers/eventController');
+const requireAuth = require('../middleware/requireAuth')
 
 const router = express.Router()
+
+//require auth for all event routes
+router.use(requireAuth)
 
 //GET all events
 router.get('/', getEvents);

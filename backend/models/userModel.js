@@ -1,35 +1,39 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
-const Schema  = mongoose.Schema;
 const validator = require('validator');
+
+const Schema  = mongoose.Schema;
 
 const userSchema = new Schema({
     email:{
         type: String,
         required: true,
-        unique:true
+        unique: true
     },
     username:{
-        type: String, required: true, unique: false
+        type: String, 
+        required: true, 
+        unique: false
     },
     password:{
-        type: String, required: true
+        type: String, 
+        required: true
     }
 })
 
 userSchema.statics.login = async function(email, password){
     if(!email  || !password){
-        throw Error('all fields must be filled')
+        throw Error('All fields must be filled')
     }
     const user = await this.findOne({email})
 
     if(!user){
-        throw Error('incorrect Email')
+        throw Error('Incorrect email')
     }
 
     const match = await bcrypt.compare(password, user.password)
     if(!match){
-        throw Error ('invalid login credentials')
+        throw Error ('Invalid login credentials')
     }
 
     return user;
@@ -47,10 +51,16 @@ userSchema.statics.signup = async function(email, username, password){
         throw Error ('Password too weak')
     }
 
-    const exists = await this.findOne({email})
+    const emailExists = await this.findOne({email})
 
-    if(exists){
-        throw Error('this email is already in use')
+    if(emailExists) {
+        throw Error('This email is already in use')
+    }
+
+    const usernameExists = await this.findOne({username})
+
+    if(usernameExists) {
+        throw Error("This username is already in use")
     }
 
 
@@ -61,10 +71,5 @@ userSchema.statics.signup = async function(email, username, password){
 
     return user
 }
-
-
-
-
-
 
 module.exports = mongoose.model('User', userSchema)

@@ -1,4 +1,5 @@
 import { useEventsContext } from "../hooks/UseEventsContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 //date fns
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
@@ -6,10 +7,18 @@ import format from 'date-fns/format'
 
 const EventDetails = ({ event }) => {
     const { dispatch } = useEventsContext()
+    const {user} = useAuthContext()
 
     const handleClick = async () => {
+        if(!user) {
+            return
+        }
+
         const response = await fetch('/api/events/' + event._id, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                "Authorization": `Bearer ${user.token}`
+              }
         })
         const json = await response.json()
         

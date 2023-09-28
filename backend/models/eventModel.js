@@ -15,6 +15,10 @@ const eventSchema = new Schema({
     date: {
         type: Date,
         required: false
+    },
+    user_id: {
+        type: String,
+        required: true
     }
 }, {timestamps: true});
 
