@@ -35,7 +35,7 @@ const Signup = () => {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="username" className="form-label">
-                    Username:
+                    Brugernavn:
                   </label>
                   <input
                     type="text"
@@ -65,7 +65,7 @@ const Signup = () => {
                   disabled={isLoading}
                   className="btn btn-success"
                 >
-                  Sign up
+                  Tilmeld
                 </button>
     
                 {error && <div className="text-danger mt-2">{error}</div>}
