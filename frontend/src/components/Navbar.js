@@ -14,7 +14,7 @@ const Navbar = () => {
         <header>
         <div className="container">
           <Link to="/">
-            <h1 className=''>Ungdom</h1>
+            <h1 className='text-dark'>Samlingspunktet</h1>
           </Link>
           <nav class="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: '#e3f2fd' }}>
             {user && (
