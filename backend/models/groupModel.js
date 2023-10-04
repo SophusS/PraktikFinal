@@ -8,14 +8,15 @@ const groupSchema = new Schema({
         required: true,
         unique: false
     },
-    description:{
-        type: String, required: true, unique: false
+    title:{
+        type: String, required: false, unique: false
     },
-    owner:{
-        type: user, required: true
+    ownerID:{
+        type: String, required: true
     },
     //not sure how to do members so this might be wrong
-    members: [{
-        type: user, unique: true
-    }]
+    members: {
+        type: [user], unique: true
+    }
+    //need location 
 })

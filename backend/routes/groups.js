@@ -1,7 +1,16 @@
-const express  =require('express')
-const { route } = require('./events')
-const { updateEvent } = require('../controllers/eventController')
+const express  = require('express')
+//const { route } = require('./groups')
+//const { updateGroup } = require('../controllers/eventController')
 
+const {
+    getGroups,
+    getGroup,
+    postGroup,
+    deleteGroup,
+    updateGroup
+}= require ('../controllers/groupsController')
+
+const router = express.Router();
 
 //GET groups by membership need to figure out how to check for membership
 
@@ -17,10 +26,4 @@ route.delete('/:id', deleteGroup)
 //UPDATE a group
 route.patch('/:id', updateGroup)
 
-const {
-    getGroups,
-    getGroup,
-    postGroup,
-    deleteGroup,
-    updateGroup
-}= require = ('../controllers/groupsController')
+module.exports = router
