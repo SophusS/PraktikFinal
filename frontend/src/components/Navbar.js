@@ -16,7 +16,7 @@ const Navbar = () => {
           <Link to="/">
             <h1 className='text-dark'>Samlingspunktet</h1>
           </Link>
-          <nav class="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: '#e3f2fd' }}>
+          <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: '#e3f2fd' }}>
             {user && (
               <div className="container d-flex">
                 <Link to="/skabbegivenhed" className='nav-link mx-3'>Skab begivenhed</Link>
